@@ -1,20 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright 2015-2017 Hewlett Packard Enterprise Development LP.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hpe.caf</groupId>
+    <groupId>com.github.cafapi</groupId>
     <artifactId>doc-site-compiler-image</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    
+    <name>Doc Site Compiler image</name>
+    <description>An image for compiling the documentation site of a CAF project</description>
+    <url>https://github.com/CAFapi/doc-site-compiler-image</url>
 
     <parent>
         <groupId>com.github.cafapi</groupId>
-        <artifactId>caf-parent</artifactId>
-        <version>1.9.0-SNAPSHOT</version>
-        <relativePath />
+        <artifactId>caf-common</artifactId>
+        <version>1.11.0-218</version>
     </parent>
+    
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    
+    <developers>
+        <developer>
+            <id>dermot-hardy</id>
+            <name>Dermot Hardy</name>
+            <email>dermot.hardy@hpe.com</email>
+        </developer>
+    </developers>
 
     <properties>
         <maven.install.skip>true</maven.install.skip>
@@ -47,7 +82,7 @@
                     <autoPull>always</autoPull>
                     <images>
                         <image>
-                            <name>${corporateDockerRegistry}/caf/doc-site-compiler:${project.version}</name>
+                            <name>cafinternal/doc-site-compiler:${project.version}</name>
                             <build>
                                 <dockerFileDir>.</dockerFileDir>
                                 <args>
@@ -70,4 +105,10 @@
         </plugins>
     </build>
 
+    <scm>
+        <connection>scm:git:https://github.com/CAFapi/doc-site-compiler-image.git</connection>
+        <developerConnection>scm:git:https://github.com/CAFapi/doc-site-compiler-image.git</developerConnection>
+        <url>https://github.com/CAFapi/doc-site-compiler-image</url>
+    </scm>
+    
 </project>
