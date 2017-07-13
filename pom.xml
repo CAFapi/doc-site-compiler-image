@@ -35,14 +35,14 @@
         <artifactId>caf-common</artifactId>
         <version>1.11.0-218</version>
     </parent>
-    
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-    
+
     <developers>
         <developer>
             <id>dermot-hardy</id>
@@ -110,5 +110,5 @@
         <developerConnection>scm:git:https://github.com/CAFapi/doc-site-compiler-image.git</developerConnection>
         <url>https://github.com/CAFapi/doc-site-compiler-image</url>
     </scm>
-    
+
 </project>
