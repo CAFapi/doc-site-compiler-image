@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-FROM digitallyseamless/nodejs-bower-grunt:5
+ARG DOCKER_HUB_PUBLIC=docker.io
+FROM ${DOCKER_HUB_PUBLIC}/digitallyseamless/nodejs-bower-grunt:5
 
 # Download and compile v1.29 of tar
 # (Version 1.27.1 is included in the base image but it doesn't have the --exclude-vcs-ignores switch)
