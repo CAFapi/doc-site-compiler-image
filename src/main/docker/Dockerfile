@@ -15,13 +15,13 @@
 #
 
 ARG DOCKER_HUB_PUBLIC=docker.io
-FROM ${DOCKER_HUB_PUBLIC}/digitallyseamless/nodejs-bower-grunt:5
+FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:latest
 
+RUN zypper install -y tar && \
+    zypper install -y gzip && \
+    zypper install -y -t pattern devel_basis
 # Download and compile v1.29 of tar
 # (Version 1.27.1 is included in the base image but it doesn't have the --exclude-vcs-ignores switch)
-RUN sed -i -e 's/mozilla\/DST_Root_CA_X3\.crt/!mozilla\/DST_Root_CA_X3\.crt/g' /etc/ca-certificates.conf
-RUN wget http://launchpadlibrarian.net/482351465/ca-certificates_20190110~12.04.1_all.deb
-RUN dpkg -i ca-certificates_20190110~12.04.1_all.deb
 RUN curl -sSL https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz | tar xzf - -C /usr/src/
 RUN cd /usr/src/tar-1.29/ && FORCE_UNSAFE_CONFIGURE=1 ./configure && make && make install
 
