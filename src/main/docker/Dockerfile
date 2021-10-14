@@ -15,10 +15,9 @@
 #
 
 ARG DOCKER_HUB_PUBLIC=docker.io
-FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:latest
+FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:2
 
-RUN zypper install -y tar && \
-    zypper install -y gzip && \
+RUN zypper install -y gzip && \
     zypper install -y -t pattern devel_basis
 # Download and compile v1.29 of tar
 # (Version 1.27.1 is included in the base image but it doesn't have the --exclude-vcs-ignores switch)
@@ -27,12 +26,6 @@ RUN cd /usr/src/tar-1.29/ && FORCE_UNSAFE_CONFIGURE=1 ./configure && make && mak
 
 # Install Bower Artifactory integration
 RUN npm install -g bower-art-resolver
-
-# Add Tini
-ENV TINI_VERSION v0.14.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
-ENTRYPOINT ["/tini", "--"]
 
 # Copy in the build script and make it the default command
 ENV TARGET_FILE=docs-site.tar.gz
