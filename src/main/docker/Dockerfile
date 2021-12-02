@@ -20,8 +20,8 @@ FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:2
 RUN zypper install -y gzip && \
     zypper install -y -t pattern devel_basis
 
-# Install Bower Artifactory integration
-RUN npm install -g bower-art-resolver
+# Install Bower & Bower Artifactory integration
+RUN npm install -g bower bower-art-resolver
 
 # Copy in the build script and make it the default command
 ENV TARGET_FILE=docs-site.tar.gz
