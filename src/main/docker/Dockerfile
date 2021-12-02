@@ -19,10 +19,6 @@ FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:2
 
 RUN zypper install -y gzip && \
     zypper install -y -t pattern devel_basis
-# Download and compile v1.29 of tar
-# (Version 1.27.1 is included in the base image but it doesn't have the --exclude-vcs-ignores switch)
-RUN curl -sSL https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz | tar xzf - -C /usr/src/
-RUN cd /usr/src/tar-1.29/ && FORCE_UNSAFE_CONFIGURE=1 ./configure && make && make install
 
 # Install Bower Artifactory integration
 RUN npm install -g bower-art-resolver
