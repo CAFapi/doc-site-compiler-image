@@ -21,7 +21,12 @@ RUN zypper install -y gzip && \
     zypper install -y -t pattern devel_basis
 
 # Install Bower & Bower Artifactory integration
-RUN npm install -g bower bower-art-resolver
+RUN npm install -g bower && \
+    echo '{ "allow_root": true }' > /root/.bowerrc && \
+    npm install -g bower-art-resolver
+
+# Define working directory
+WORKDIR /data
 
 # Copy in the build script and make it the default command
 ENV TARGET_FILE=docs-site.tar.gz
