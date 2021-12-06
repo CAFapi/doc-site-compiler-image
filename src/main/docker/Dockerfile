@@ -17,8 +17,8 @@
 ARG DOCKER_HUB_PUBLIC=docker.io
 FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:2
 
-RUN zypper install -y gzip && \
-    zypper install -y -t pattern devel_basis
+RUN zypper -n install gzip && \
+    zypper -n install -t pattern devel_basis
 
 # Install Bower & Bower Artifactory integration
 RUN npm install -g bower && \
