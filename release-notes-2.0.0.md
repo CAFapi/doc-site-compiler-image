@@ -1,5 +1,3 @@
-!not-ready-for-release!
-
 #### Version Number
 ${version-number}
 
@@ -7,5 +5,7 @@ ${version-number}
 - SCMOD-15298: Move from a Debian-based image to an openSUSE-based image.
 
 #### New Features
+- None
 
 #### Known Issues
+- None
