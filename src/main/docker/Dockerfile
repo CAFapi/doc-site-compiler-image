@@ -14,8 +14,7 @@
 # limitations under the License.
 #
 
-ARG DOCKER_HUB_PUBLIC=docker.io
-FROM ${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10:2
+FROM ${projectDockerRegistry}/cafapi/opensuse-nodejs10
 
 RUN zypper -n install gzip && \
     zypper -n install -t pattern devel_basis
