@@ -73,13 +73,31 @@
                     <artifactId>docker-versions-maven-plugin</artifactId>
                     <version>1.0.0-SNAPSHOT</version>
                 </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.26.1</version>
+                </plugin>  
             </plugins>
         </pluginManagement>
         <plugins>
             <plugin>
+                <groupId>com.github.cafapi.plugins.docker.versions</groupId>
+                <artifactId>docker-versions-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <imageManagement>
+                        <image>
+                            <repository>${DOCKER_HUB_PUBLIC}/cafapi/opensuse-nodejs10</repository>
+                            <tag>2.4.3</tag>
+                            <digest>sha256:25d1815da6d5a941e12a0606138e56472f71e3bda3aec756e3d67beee326e4c7</digest>
+                        </image>
+                    </imageManagement>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.26.1</version>
                 <executions>
                     <execution>
                         <id>docker-build</id>
