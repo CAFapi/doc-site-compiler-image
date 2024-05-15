@@ -88,11 +88,6 @@
                 <configuration>
                     <imageManagement>
                         <image>
-                            <repository>${dockerHubPublic}/cafapi/opensuse-jdk8</repository>
-                            <tag>4.0.0</tag>
-                            <digest>sha256:cefcd1a4ae8599c8aaf0d58ad8e0da674fb9fedf75987bdbcd3706985a14e965</digest>
-                        </image>
-                        <image>
                             <repository>${dockerHubPublic}/cafapi/opensuse-nodejs10</repository>
                             <tag>2.4.3</tag>
                             <digest>sha256:25d1815da6d5a941e12a0606138e56472f71e3bda3aec756e3d67beee326e4c7</digest>
