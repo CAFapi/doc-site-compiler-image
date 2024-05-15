@@ -115,7 +115,6 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <autoPull>always</autoPull>
                     <images>
                         <image>
                             <name>${dockerCafImagePrefix}doc-site-compiler${dockerProjectVersion}</name>
